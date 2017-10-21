@@ -56,6 +56,12 @@
 
 /* Private define ------------------------------------------------------------*/
 
+#define SW_Aux_Pin GPIO_PIN_1
+#define SW_Aux_GPIO_Port GPIOH
+#define SW_HV_Pin GPIO_PIN_0
+#define SW_HV_GPIO_Port GPIOC
+#define SW_Drive_Pin GPIO_PIN_1
+#define SW_Drive_GPIO_Port GPIOC
 #define Brake_1_Pin GPIO_PIN_2
 #define Brake_1_GPIO_Port GPIOC
 #define Brake_2_Pin GPIO_PIN_3

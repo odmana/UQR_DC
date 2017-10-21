@@ -127,7 +127,7 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
   debug_init();
-  pedal_init();
+//  pedal_init();
   debug_log("<<< Init Finished >>>");
   /* USER CODE END 2 */
 
@@ -150,8 +150,8 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  osThreadDef(pedalTask, pedal_debug, osPriorityNormal, 0, 128);
-  osThreadCreate(osThread(pedalTask), NULL);
+//  osThreadDef(pedalTask, pedal_debug, osPriorityNormal, 0, 128);
+//  osThreadCreate(osThread(pedalTask), NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
@@ -472,14 +472,14 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pins : PC13 PC14 PC0 PC1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_0|GPIO_PIN_1;
+  /*Configure GPIO pins : PC13 PC14 SW_HV_Pin SW_Drive_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|SW_HV_Pin|SW_Drive_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PH0 PH1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
+  /*Configure GPIO pins : PH0 SW_Aux_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|SW_Aux_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
